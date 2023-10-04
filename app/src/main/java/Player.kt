@@ -1,3 +1,6 @@
+import android.os.Build
+import androidx.annotation.RequiresApi
+
 class Player(val name: String, var level: Int = 1, var lives: Int = 3, var score: Int = 0) {
     var weapon = Weapon("Fist",1)
     private val inventory = ArrayList<Loot>()
@@ -29,6 +32,11 @@ class Player(val name: String, var level: Int = 1, var lives: Int = 3, var score
         } else {
             false
         }
+    }
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun dropLoot(name: String): Boolean {
+        println("$name will be dropped")
+        return inventory.removeIf { it.name == name}
     }
     fun showInventory() {
         println("$name's Inventory")

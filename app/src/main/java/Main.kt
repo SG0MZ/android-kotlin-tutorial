@@ -1,3 +1,7 @@
+import android.os.Build
+import androidx.annotation.RequiresApi
+
+@RequiresApi(Build.VERSION_CODES.N)
 fun main(args: Array<String>) {
 
     val tim = Player("Tim")
@@ -56,13 +60,9 @@ fun main(args: Array<String>) {
         println("You don't have ${bluePotion.name}")
     }
 
-//    for (i in 10 downTo 0 step 2) {
-//        println("$i squared is ${i * i}")
-//    }
-//
-//    for (value in 3..100 step 3) {
-//        if (value % 5 == 0) {
-//            println(value)
-//        }
-//    }
+    if (tim.dropLoot("Invisibility Potion")) {
+        tim.showInventory()
+    } else {
+        println("You don't have an Invisibility Potion")
+    }
 }
