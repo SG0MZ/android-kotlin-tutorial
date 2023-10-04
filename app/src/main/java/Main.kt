@@ -14,4 +14,17 @@ fun main(args: Array<String>) {
     val one2watch = Player("Ace",2,5,1000)
     gr8.show()
     one2watch.show()
+    println(one2watch.weapon.name.toUpperCase())
+    println(one2watch.weapon.damageInflicted)
+
+    val axe = Weapon("Axe",12)
+    gr8.weapon = axe
+    println(gr8.weapon.name)
+    println(gr8.weapon.damageInflicted)
+
+    tim.weapon = Weapon("Sword",10)
+    println(tim.weapon.name)
+
+    tim.weapon = Weapon("Spear",14)
+    println(tim.weapon.name)
 }
