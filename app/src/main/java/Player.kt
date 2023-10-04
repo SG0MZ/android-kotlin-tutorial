@@ -33,10 +33,26 @@ class Player(val name: String, var level: Int = 1, var lives: Int = 3, var score
             false
         }
     }
-    @RequiresApi(Build.VERSION_CODES.N)
+//    @RequiresApi(Build.VERSION_CODES.N)
+//    fun dropLoot(name: String): Boolean {
+//        for (item in inventory) {
+//            if (item.name == name) {
+//                inventory.remove(item)
+//                return true
+//            }
+//        }
+//        return false
+//    }
     fun dropLoot(name: String): Boolean {
-        println("$name will be dropped")
-        return inventory.removeIf { it.name == name}
+        var result = false
+        for (item in inventory) {
+            if (item.name == name) {
+                inventory.remove(item)
+                result = true
+                break;
+            }
+        }
+        return result
     }
     fun showInventory() {
         var total = 0.0
