@@ -39,10 +39,14 @@ class Player(val name: String, var level: Int = 1, var lives: Int = 3, var score
         return inventory.removeIf { it.name == name}
     }
     fun showInventory() {
+        var total = 0.0
         println("$name's Inventory")
         for (item in inventory) {
             println(item)
+            total += item.value
         }
+        println("========================================")
+        println("Total score is: $total")
         println("========================================")
     }
 }
